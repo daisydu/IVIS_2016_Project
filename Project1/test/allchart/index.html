@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Project 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Project 1">
+    <meta name="author" content="520daisydu@gmail.com">
+
+    <script src="../../doc/example/www/js/echarts.js"></script>
+    <script src="../../doc/asset/js/codemirror.js"></script>
+    <script src="../../doc/asset/js/javascript.js"></script>
+
+    <link href="../../doc/asset/css/bootstrap.css" rel="stylesheet">
+    <link href="../../doc/asset/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../../doc/asset/css/codemirror.css" rel="stylesheet">
+    <link href="../../doc/asset/css/monokai.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../../doc/asset/ico/favicon.png">
+    <style type="text/css">
+        .test-head {margin-top:20;}
+        .CodeMirror pre{color: #f8f8f2;}
+        .sidebar-nav {
+            padding: 9px 0;
+            margin-bottom: 0;
+        }
+        .icon-resize-full, .icon-resize-small {
+            float: right;
+            opacity: .3;
+        }
+        .span4.ani {
+            transition: width 1s;
+            -moz-transition: width 1s; /* Firefox 4 */
+            -webkit-transition: width 1s; /* Safari and Chrome */
+            -o-transition: width 1s; /* Opera */
+        }
+        .span8.ani {
+            transition: width 1s;
+            -moz-transition: width 1s; /* Firefox 4 */
+            -webkit-transition: width 1s; /* Safari and Chrome */
+            -o-transition: width 1s; /* Opera */
+        }
+        .main {
+            height: 400px;
+            overflow: hidden;
+            padding : 10px;
+            margin-bottom: 10px;
+            margin-right: 40px;
+            margin-left: 10px;
+            border: 1px solid #e3e3e3;
+            -webkit-border-radius: 4px;
+               -moz-border-radius: 4px;
+                    border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+               -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+                    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1 class="test-head"><center>DH2321 Information Visualization<h3>Project 1--Siyu Du</h3></h1></center>
+
+   <div class="container-fluid" idx='0'>
+        <div class="row-fluid" >
+            <div class="nav-header"><a href="#" onclick="autoResize()" class="icon-resize-full" md ="icon-resize"></div>
+            <div md="sidebar-code" style="display:none">
+                <div class="well sidebar-nav" >
+                  <div class="nav-header"><a href="#" onclick="autoResize()" class="icon-resize-full" md ="icon-resize"></a>option</div> 
+                    <textarea md="code" name="code">
+option = { 
+    title : {
+        text: 'Scores of Techniques',
+        subtext: 'Group 1 - Group 11'
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'right',
+        y : 'bottom',
+        data:['Group 1','Group 2', 'Group 3', 'Group 4', 'Group 5', 'Group 6', 'Group 7', 'Group 8', 'Group 9', 'Group 10', 'Group 11']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    polar : [
+       {
+           indicator : [
+               { text: 'Information Visualization skills', max: 10},
+               { text: 'Statistic skills', max: 10},
+               { text: 'Mathematic skills', max: 10},
+               { text: 'Drawing and artistic skills', max: 10},
+               { text: 'Computer usage skills', max: 10},
+               { text: 'Programming skills', max: 10},
+               { text: 'Graphic programming skills', max: 10},
+               { text: 'Human-computer interaction programming skills', max: 10},
+               { text: 'User experience evaluation skills', max: 10}
+            ]
+        }
+    ],
+    calculable : true,
+    series : [
+        {
+            name: 'The overall techniques of each group',
+            type: 'radar',
+            data : [
+                {
+                    value : [3.86, 4.71, 5.14, 4.86, 8.00, 6.43, 4.14, 4.86, 5.43],
+                    name : 'Group 1'
+                },
+                 {
+                    value : [3.71, 4.29, 5.43, 6.00, 7.29, 5.57, 4.14, 5.14, 5.00 ],
+                    name : 'Group 2'
+                },
+                {
+                    value : [4.71, 4.00, 5.14, 5.29, 6.71, 5.29, 4.00, 5.86, 6.71],
+                    name : 'Group 3'
+                },
+                {
+                    value : [3.71, 5.00, 5.71, 5.00, 7.57, 6.00, 3.86, 6.00, 4.71],
+                    name : 'Group 4'
+                },
+                {
+                    value : [4.16, 4.53, 5.32, 5.45, 7.38, 5.61, 4.00, 5.63, 5.39],
+                    name : 'Group 5'
+                },
+                {
+                    value : [5.00, 4.29, 5.00, 6.14, 8.00, 4.86, 4.00, 5.57, 5.14],
+                    name : 'Group 6'
+                },
+                {
+                    value : [4.43, 4.43, 6.14, 5.14, 7.86, 4.86, 4.00, 4.43, 6.57],
+                    name : 'Group 7'
+                },
+                {
+                    value : [4.43, 4.43, 5.00, 5.43, 7.86, 4.71, 3.86, 6.00, 5.86],
+                    name : 'Group 8'
+                },
+                {
+                    value : [4.86, 5.29, 5.43, 6.29, 7.29, 5.29, 3.43, 4.29, 5.29],
+                    name : 'Group 9'
+                },
+                {
+                    value : [4.00, 4.83, 6.67, 5.00, 7.83, 5.33, 5.17, 5.00, 5.00],
+                    name : 'Group 10'
+                },
+                {
+                    value : [5.00, 4.83, 5.67, 4.50, 8.00, 5.17, 3.83, 5.33, 5.67],
+                    name : 'Group 11'
+                },
+            ]
+        }
+    ]
+};
+                    </textarea>
+              </div><!--/.well -->
+            </div><!--/span-->
+            <div md="graphic" class="span12">
+                <div md="main" class="main"></div>
+                <div>
+                  <!--  <button onclick="refresh(true, 0)">Refresh</button> -->
+                    <span md='wrong-message' style="color:red"></span>
+                </div>
+            </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/.fluid-container-->
+
+        <div class="container-fluid" idx='0'>
+        <div class="row-fluid">
+            <div md="sidebar-code" style="display:none">
+                <div class="well sidebar-nav">
+                    <div class="nav-header"><a href="#" onclick="autoResize()" class="icon-resize-full" md ="icon-resize" ></a>option</div>
+                    <textarea md="code" name="code">
+
+option = {
+    title : {
+        text: 'Overall Techniques',
+        subtext: 'Group 1 - Group 11'
+    },
+
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            
+            type : 'shadow'        
+        }
+    },
+    legend: {
+        data:['Data processing and visualization skills', 'Drawing and artistic skills', 'Programming skills', 'Human-computer interaction design skills']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    
+    calculable : true,
+    
+      xAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    yAxis : [
+        {
+            type : 'category',
+            data:['Group 1','Group 2', 'Group 3', 'Group 4', 'Group 5', 'Group 6', 'Group 7', 'Group 8', 'Group 9', 'Group 10', 'Group 11']
+        }
+    ],
+
+    series : [
+        {
+            name:'Data processing and visualization skills',
+            type:'bar',
+            stack: 'Overall',
+            itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+            data:[4.71, 4.63, 4.60, 5.03, 4.77, 4.71, 5.11, 4.66, 5.26, 5.40, 5.20]
+        },
+        {
+            name:'Drawing and artistic skills',
+            type:'bar',
+            stack: 'Overall',
+            itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+            data:[4.86, 6.00, 5.29, 5.00, 5.45, 6.14, 5.14, 5.43, 6.29, 5.00, 4.50]
+        },
+        {
+            name:'Programming skills',
+            type:'bar',
+            stack: 'Overall',
+            itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+            data:[5.56, 5.10, 4.85, 5.19, 5.06, 4.79, 4.77, 4.64, 4.65, 5.51, 4.85]
+        },
+        {
+            name:'Human-computer interaction design skills',
+            type:'bar',
+            stack: 'Overall',
+            itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+            data:[5.14, 5.07, 6.29, 5.36, 5.51, 5.36, 5.50, 5.93, 4.79, 5.00, 5.50]
+        }
+    ]
+};
+                    </textarea>
+              </div><!--/.well -->
+            </div><!--/span-->
+            <div md="graphic" class="span12">
+                <div md="main" class="main"></div>
+            </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/.fluid-container-->
+        
+
+    <div class="container-fluid" idx='0'>
+        <div class="row-fluid">
+            <div md="sidebar-code" style="display:none">
+                <div class="well sidebar-nav">
+                    <div class="nav-header"><a href="#" onclick="autoResize()" class="icon-resize-full" md ="icon-resize" ></a>option</div>
+                    <textarea md="code" name="code">
+
+option = {
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['Data processing and visualization skills','Drawing and artistic skills', 'Programming skills', 'Human-computer interaction design skills']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['Group 1','Group 2', 'Group 3', 'Group 4', 'Group 5', 'Group 6', 'Group 7', 'Group 8', 'Group 9', 'Group 10', 'Group 11']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            axisLabel : {
+                formatter: '{value} '
+            }
+        }
+    ],
+    series : [
+        {
+            name:'Data processing and visualization skills',
+            type:'line',
+            data:[4.71, 4.63, 4.60, 5.03, 4.77, 4.71, 5.11, 4.66, 5.26, 5.40, 5.20],
+            markPoint : {
+                data : [
+                    {type : 'max', name: 'Max'},
+                    {type : 'min', name: 'Min'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: 'Average'}
+                ]
+            }
+        },
+        {
+            name:'Drawing and artistic skills',
+            type:'line',
+            data:[4.86, 6.00, 5.29, 5.00, 5.45, 6.14, 5.14, 5.43, 6.29, 5.00, 4.50],
+            markPoint : {
+                data : [
+                    {type : 'max', name: 'Max'},
+                    {type : 'min', name: 'Min'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: 'Average'}
+                ]
+            }
+        },
+        {
+            name:'Programming skills',
+            type:'line',
+            data:[5.56, 5.10, 4.85, 5.19, 5.06, 4.79, 4.77, 4.64, 4.65, 5.51, 4.85],
+            markPoint : {
+                data : [
+                    {type : 'max', name: 'Max'},
+                    {type : 'min', name: 'Min'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: 'Average'}
+                ]
+            }
+        },
+        {
+            name:'Human-computer interaction design skills',
+            type:'line',
+            data:[5.14, 5.07, 6.29, 5.36, 5.51, 5.36, 5.50, 5.93, 4.79, 5.00, 5.50],
+            markPoint : {
+                data : [
+                    {type : 'max', name: 'Max'},
+                    {type : 'min', name: 'Min'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: 'Average'}
+                ]
+            }
+        },
+    ]
+};
+                    </textarea>
+              </div><!--/.well -->
+            </div><!--/span-->
+            <div md="graphic" class="span12">
+                <div md="main" class="main"></div>
+                <div>
+                <!--    <button onclick="refresh(true, 0)">Refresh</button> -->
+                    <span md='wrong-message' style="color:red"></span>
+                </div> 
+            </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/.fluid-container-->
+        
+    </div><!--/.fluid-container-->
+    
+    <script src="../../doc/asset/js/jquery.js"></script>
+    <script src="all.js"></script>
+</body>
+</html>
